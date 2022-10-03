@@ -56,8 +56,8 @@ const filters = [
 
 // Filter Pane Component
 const FilterPane = (props) => (
-    <div class="FilterPane">
-      {filters.map(thisFilter => <Filter filter={thisFilter} updateFilterValue={props.updateFilterValue} />)}
+    <div className="FilterPane">
+      {filters.map(thisFilter => <Filter filter={thisFilter} key={thisFilter.filterName} updateFilterValue={props.updateFilterValue} />)}
     </div>
 )
 

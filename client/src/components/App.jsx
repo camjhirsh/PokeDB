@@ -15,27 +15,26 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    this.getAllPokemon()
-    .then((results) => {
-      let allPokemon = [];
-      for (let result of results) {
-        let pokemon = {};
-        pokemon.order = result.data.id;
-        pokemon.name = result.data.name;
-        pokemon.defaultPicture = result.data.sprites.front_default;
-        pokemon.types = result.data.types.map(type => type.type.name);
-        allPokemon.push(pokemon);
-      }
-      this.setState( {basePokemon: allPokemon, pokemon: allPokemon} )
+    axios.get('/pokemon')
+    .then((response) => {
+      console.log(response);
     })
-  }
-
-  getAllPokemon () {
-    let urls = [];
-    for (let i = 1; i <= 898; i++) {
-      urls.push('https://pokeapi.co/api/v2/pokemon/' + i);
-    }
-    return Promise.all(urls.map((url) => axios.get(url)));
+    .catch((err) => {
+      console.error(err);
+    })
+    // this.getAllPokemon()
+    // .then((results) => {
+    //   let allPokemon = [];
+    //   for (let result of results) {
+    //     let pokemon = {};
+    //     pokemon.order = result.data.id;
+    //     pokemon.name = result.data.name;
+    //     pokemon.defaultPicture = result.data.sprites.front_default;
+    //     pokemon.types = result.data.types.map(type => type.type.name);
+    //     allPokemon.push(pokemon);
+    //   }
+    //   this.setState( {basePokemon: allPokemon, pokemon: allPokemon} )
+    // })
   }
 
   search () {
@@ -49,8 +48,8 @@ class App extends React.Component {
 
   render () {
     return (
-    <div class="wrapper">
-      <h1 class="title"> Search Pokemon! </h1>
+    <div className="wrapper">
+      <h1 className="title"> Search Pokemon! </h1>
       <FilterPane updateFilterValue = {this.updateFilterValue.bind(this)}/>
       <Search search = {this.search.bind(this)}/>
       <PokeList pokemonList = {this.state.pokemon}/>

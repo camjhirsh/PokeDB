@@ -12,7 +12,7 @@ class Filter extends React.Component {
 
   render () {
     return (
-      <div class="filter" id={this.props.filter.filterName}>
+      <div className="filter" id={this.props.filter.filterName}>
         Which {this.props.filter.filterName} ?
         <Select options={this.props.filter.options} onChange={this.handleChange.bind(this)}/>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Search = (props) => (
-  <div class="SearchButton">
+  <div className="SearchButton">
     <button onClick={props.search}>Search</button>
   </div>
 )
