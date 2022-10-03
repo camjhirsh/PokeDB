@@ -1,0 +1,67 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 80px 80px auto auto;
+  row-gap: 60px;
+}
+
+.title {
+  color: red;
+  text-align: center;
+  font-family: 'Carter One';
+
+
+  grid-column: 1 / 5;
+}
+
+.FilterPane {
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.SearchButton {
+  grid-column: 1 / 5;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.PokemonList {
+  grid-column: 1 / 5;
+}
+
+.PokemonRow {
+  font-family: 'Roboto Slab', serif;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+}
+
+.filter {
+  max-width: 200px;
+  padding-left: 20px;
+}
+
+.PokeName {
+  color: darkblue;
+  padding-top: 40px;
+}
+
+.PokeTypes {
+  color: red;
+  padding-top: 40px;
+}
+
+.PokeImage {
+  width: 20%;
+  padding-left: 120px;
+}
+
+.Index {
+  color: black;
+  padding-left: 60px;
+  padding-top: 40px;
+}
+
+#Type {
+  grid-column: 2 / 3;
+}
