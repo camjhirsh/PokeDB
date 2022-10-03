@@ -20,7 +20,7 @@ class App extends React.Component {
       console.log(response);
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
     })
     // this.getAllPokemon()
     // .then((results) => {
@@ -38,7 +38,11 @@ class App extends React.Component {
   }
 
   search () {
-    console.log(this.state.filterVal);
+    // console.log(this.state.filterVal);
+    // axios.get('/pokemon')
+    // .then((response) => {
+    //   console.log(response);
+    // })
     this.setState({ pokemon: this.state.basePokemon.filter(pokemon => pokemon.types.includes(this.state.filterVal))})
   }
 

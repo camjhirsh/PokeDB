@@ -20,9 +20,10 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
-    "react": "^16.4",
-    "react-dom": "^16.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-select": "^5.4.0",
+    "@emotion/react": "^11.10.4",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2"
   },

@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
+const db = require('./dbInteraction.js');
 // const createDB = require('./createDB.js');
 
 // serve static files found in dist
@@ -11,10 +12,9 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // populate DB and send all necessary info to client
 app.get('/pokemon', (req, res) => {
-  console.log('made it');
-  // let result = await createDB();
-  // res.send(result);
-  res.send('Hello');
+  db.insertPokemon();
+  db.getAllPokemon(result => console.log(result));
+  res.send('ok');
 });
 
 // Set Port and listen

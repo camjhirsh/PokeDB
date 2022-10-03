@@ -4,7 +4,7 @@ USE pokemonDB;
 
 CREATE TABLE pokemon (
   `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `order` INT,
+  `order` INTEGER,
   `name` TEXT,
   `default_picture` TEXT
 );
