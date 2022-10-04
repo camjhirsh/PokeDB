@@ -110,6 +110,49 @@ module.exports = {
         }
       })
     })
+  },
+
+  getAllPokemon2: async (n) => {
+
+    var query1 = (id) => {
+      return new Promise((resolve, reject) => {
+        db.connection.query(
+          `SELECT * FROM pokemon WHERE id = ${id}`,
+          (err, results) => {
+            if (err) {
+              return reject(err);
+            } else {
+              return resolve(results);
+            }
+          }
+        );
+      });
+    }
+
+    var query2 = (id) => {
+      return new Promise((resolve, reject) => {
+        db.connection.query(
+          `SELECT name FROM types RIGHT JOIN pokemon_and_types ON types.id = pokemon_and_types.type_id WHERE pokemon_id = ${id}`,
+          (err, results) => {
+            if (err) {
+              return reject(err);
+            } else {
+              return resolve(results);
+            }
+          }
+        );
+      });
+    }
+
+    let pokemon = []
+    for (let i = 1; i <= n; i++) {
+      let p = await query1(i);
+      let types = await query2(i);
+      p[0].types = types.map(t => t.name);
+      pokemon.push(p[0]);
+    }
+    return pokemon;
+
   }
 
 }
