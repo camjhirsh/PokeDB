@@ -5,16 +5,24 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const db = require('./dbInteraction.js');
+const getOnePokemon = require('./getData.js').getOnePokemon;
+const getSomePokemon = require('./getData.js').getSomePokemon;
 // const createDB = require('./createDB.js');
 
 // serve static files found in dist
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// populate DB and send all necessary info to client
-app.get('/pokemon', (req, res) => {
-  db.insertPokemon();
-  db.getAllPokemon(result => console.log(result));
-  res.send('ok');
+// create database
+app.post('/pokemon', async (req, res) => {
+  let pokemons = await getSomePokemon();
+  await db.addAllPokemon(pokemons);
+  res.send('done');
+})
+
+// send all pokemon to client
+app.get('/pokemon', async (req, res) => {
+  let result = await db.getAllPokemon();
+  res.send(result);
 });
 
 // Set Port and listen

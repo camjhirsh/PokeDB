@@ -8,7 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      basePokemon: [],
       pokemon: [],
       filterVal: ''
     }
@@ -17,33 +16,21 @@ class App extends React.Component {
   componentDidMount () {
     axios.get('/pokemon')
     .then((response) => {
-      console.log(response);
+      this.setState({ pokemon: response.data });
     })
     .catch((err) => {
       console.log(err);
     })
-    // this.getAllPokemon()
-    // .then((results) => {
-    //   let allPokemon = [];
-    //   for (let result of results) {
-    //     let pokemon = {};
-    //     pokemon.order = result.data.id;
-    //     pokemon.name = result.data.name;
-    //     pokemon.defaultPicture = result.data.sprites.front_default;
-    //     pokemon.types = result.data.types.map(type => type.type.name);
-    //     allPokemon.push(pokemon);
-    //   }
-    //   this.setState( {basePokemon: allPokemon, pokemon: allPokemon} )
-    // })
   }
 
   search () {
-    // console.log(this.state.filterVal);
-    // axios.get('/pokemon')
-    // .then((response) => {
-    //   console.log(response);
-    // })
-    this.setState({ pokemon: this.state.basePokemon.filter(pokemon => pokemon.types.includes(this.state.filterVal))})
+    axios.get('/pokemon')
+    .then((response) => {
+      this.setState({ pokemon: response.data.filter(pokemon => pokemon.types.includes(this.state.filterVal))});
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   updateFilterValue (filterName, newVal) {
