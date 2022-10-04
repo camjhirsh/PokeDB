@@ -14,12 +14,12 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('/pokemon')
-    .then((response) => {
-      this.setState({ pokemon: response.data });
-    })
-    .catch((err) => {
-      console.log(err);
+    axios.post('/database')
+    .then(() => {
+      axios.get('/pokemon')
+      .then((response) => {
+        this.setState({ pokemon: response.data });
+      })
     })
   }
 

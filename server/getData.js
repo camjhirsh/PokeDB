@@ -1,5 +1,5 @@
 const axios = require('axios');
-const db = require('./db.js');
+const db = require('./dbInteraction.js');
 
 const getOnePokemon = async (id) => {
   let pokemon = await axios.get('https://pokeapi.co/api/v2/pokemon/' + id.toString());
@@ -14,6 +14,26 @@ const getSomePokemon = async () => {
   let results = await Promise.all(urls.map((url) => axios.get(url)))
   results = results.map(result => ({order: result.data.id, name: result.data.name, default_picture: result.data.sprites.front_default}));
   return results;
+}
+
+const getTypes = async () => {
+  let results = await axios.get('https://pokeapi.co/api/v2/type');
+  results = results.data.results;
+  return results;
+}
+
+const saveTypesAndPokemon = async () => {
+  let urls = [];
+  for (let i = 1; i <= 50; i++) {
+    urls.push('https://pokeapi.co/api/v2/pokemon/' + i);
+  }
+  let results = await Promise.all(urls.map((url) => axios.get(url)))
+  results.forEach(async (result) => {
+    for (t of result.data.types) {
+      let t_id = t.type.url.split('ype/')[1].split('/')[0];
+      await db.addPokemonType(result.data.id, t_id);
+    }
+  });
 }
 
 
@@ -35,6 +55,7 @@ const getSomePokemon = async () => {
 
 // // export this async function
 // exports.createDB = createDB;
-module.exports.getOnePokemon = getOnePokemon;
+module.exports.getTypes = getTypes;
 module.exports.getSomePokemon = getSomePokemon;
+module.exports.saveTypesAndPokemon = saveTypesAndPokemon;
 // module.exports.getEngDescription = getEngDescription;
