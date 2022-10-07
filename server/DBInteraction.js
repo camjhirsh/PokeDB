@@ -59,21 +59,6 @@ module.exports = {
     });
   },
 
-  getAllPokemon: () => {
-    return new Promise((resolve, reject) => {
-      db.connection.query(
-        "SELECT * FROM pokemon",
-        (err, results) => {
-          if (err) {
-            return reject(err);
-          } else {
-            return resolve(results);
-          }
-        }
-      );
-    });
-  },
-
   addTypes: (types) => {
     return new Promise((resolve, reject) => {
 
@@ -112,7 +97,7 @@ module.exports = {
     })
   },
 
-  getAllPokemon2: async (n) => {
+  getAllPokemon: async (n) => {
 
     var query1 = (id) => {
       return new Promise((resolve, reject) => {

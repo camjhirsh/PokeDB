@@ -7,7 +7,6 @@ class Filter extends React.Component {
   }
 
   handleChange (e) {
-    console.log(e);
     this.props.updateTypeFilter(e.map(t => t.value));
   }
 
