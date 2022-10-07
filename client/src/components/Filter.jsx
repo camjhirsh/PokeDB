@@ -7,14 +7,18 @@ class Filter extends React.Component {
   }
 
   handleChange (e) {
-    this.props.updateFilterValue(this.props.filter.filterName, e.value);
+    console.log(e);
+    this.props.updateTypeFilter(e.map(t => t.value));
   }
 
   render () {
     return (
       <div className="filter" id={this.props.filter.filterName}>
         Which {this.props.filter.filterName} ?
-        <Select options={this.props.filter.options} onChange={this.handleChange.bind(this)}/>
+        <Select
+          options={this.props.filter.options}
+          isMulti
+          onChange={this.handleChange.bind(this)}/>
       </div>
     )
   }

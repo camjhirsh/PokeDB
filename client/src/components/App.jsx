@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       pokemon: [],
-      filterVal: ''
+      typeFilters: []
     }
   }
 
@@ -26,22 +26,22 @@ class App extends React.Component {
   search () {
     axios.get('/pokemon')
     .then((response) => {
-      this.setState({ pokemon: response.data.filter(pokemon => pokemon.types.includes(this.state.filterVal))});
+      this.setState({ pokemon: response.data.filter(pokemon => this.state.typeFilters.every(t => pokemon.types.includes(t))) });
     })
     .catch((err) => {
       console.log(err);
     })
   }
 
-  updateFilterValue (filterName, newVal) {
-    this.setState({ filterVal: newVal })
+  updateTypeFilter (types) {
+    this.setState({ typeFilters: types })
   }
 
   render () {
     return (
     <div className="wrapper">
       <h1 className="title"> Search Pokemon! </h1>
-      <FilterPane updateFilterValue = {this.updateFilterValue.bind(this)}/>
+      <FilterPane updateTypeFilter = {this.updateTypeFilter.bind(this)}/>
       <Search search = {this.search.bind(this)}/>
       <PokeList pokemonList = {this.state.pokemon}/>
     </div>

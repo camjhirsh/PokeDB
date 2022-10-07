@@ -4,12 +4,13 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
+
 const db = require('./dbInteraction.js');
+
 const getTypes = require('./getData.js').getTypes;
 const getSomePokemon = require('./getData.js').getSomePokemon;
 const saveTypesAndPokemon = require('./getData.js').saveTypesAndPokemon;
 
-// const createDB = require('./createDB.js');
 
 // serve static files found in dist
 app.use(express.static(path.join(__dirname, '../client/dist')));

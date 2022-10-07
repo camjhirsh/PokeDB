@@ -3,14 +3,6 @@ import Filter from './Filter.jsx'
 
 const filters = [
   {
-    filterName: "Region",
-    options: [
-      { value: 'sinoh', label: 'sinoh'},
-      { value: 'hoehn', label: 'hoehn'},
-      { value: 'black', label: 'black'}
-    ]
-  },
-  {
     filterName: "Type",
     options: [
       { value: 'grass', label: 'grass'},
@@ -32,6 +24,14 @@ const filters = [
       { value: 'ghost', label: 'ghost'},
       { value: 'bug', label: 'bug'},
       { value: 'fairy', label: 'fairy'},
+    ]
+  },
+  {
+    filterName: "Region",
+    options: [
+      { value: 'sinoh', label: 'sinoh'},
+      { value: 'hoehn', label: 'hoehn'},
+      { value: 'black', label: 'black'}
     ]
   },
   {
@@ -57,7 +57,7 @@ const filters = [
 // Filter Pane Component
 const FilterPane = (props) => (
     <div className="FilterPane">
-      {filters.map(thisFilter => <Filter filter={thisFilter} key={thisFilter.filterName} updateFilterValue={props.updateFilterValue} />)}
+      {filters.map(thisFilter => <Filter filter={thisFilter} key={thisFilter.filterName} updateTypeFilter={props.updateTypeFilter} />)}
     </div>
 )
 
