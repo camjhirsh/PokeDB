@@ -14,13 +14,11 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    axios.post('/database')
-    .then(() => {
-      axios.get('/pokemon')
-      .then((response) => {
-        this.setState({ pokemon: response.data });
-      })
+    axios.get('/pokemon')
+    .then((response) => {
+      this.setState({ pokemon: response.data });
     })
+    .catch(err => console.log('Error getting pokemon:', err))
   }
 
   search () {

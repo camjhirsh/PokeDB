@@ -5,30 +5,17 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-const db = require('./dbInteraction.js');
-const data = require('./getData.js');
+const db = require('../database/db-interaction.js');
+const data = require('./get-data.js');
 
-const getSomePokemon = require('./getData.js').getSomePokemon;
-const saveTypesAndPokemon = require('./getData.js').saveTypesAndPokemon;
-
+var total_num_pokemon = 888;
 
 // serve static files found in dist
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Hit API & populate database
-app.post('/database', async (req, res) => {
-  await db.eraseTables();
-  let types = await data.getTypes();
-  await db.addTypes(types);
-  let pokemons = await data.getSomePokemon();
-  await db.addAllPokemon(pokemons);
-  await data.saveTypesAndPokemon();
-  res.send('done');
-})
-
-// send all pokemon and types to client
+// send pokemon and types
 app.get('/pokemon', async (req, res) => {
-  let pokemon = await db.getAllPokemon(50);
+  let pokemon = await db.getNPokemon(total_num_pokemon);
   res.send(pokemon);
 });
 

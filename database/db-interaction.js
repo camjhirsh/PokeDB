@@ -4,6 +4,7 @@ module.exports = {
 
   eraseTables: async () => {
 
+    // turn key checks on / off
     let keyChecks = (position) => {
       return new Promise ((resolve, reject) => {
         db.connection.query(`SET FOREIGN_KEY_CHECKS = ${position}`, (err, results) => {
@@ -16,6 +17,7 @@ module.exports = {
       });
     }
 
+    // clear input table
     let cleanTable = (table) => {
       return new Promise((resolve, reject) => {
         db.connection.query(`TRUNCATE TABLE ${table}`, (err, results) => {
@@ -97,7 +99,7 @@ module.exports = {
     })
   },
 
-  getAllPokemon: async (n) => {
+  getNPokemon: async (n) => {
 
     var query1 = (id) => {
       return new Promise((resolve, reject) => {
