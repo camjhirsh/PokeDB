@@ -6,14 +6,14 @@ const Party = (props) => {
   return (
     <div className="party-section">
       <h2> Party </h2>
-      <li>
-        <ul> 1. </ul>
-        <ul> 2. </ul>
-        <ul> 3. </ul>
-        <ul> 4. </ul>
-        <ul> 5. </ul>
-        <ul> 6. </ul>
-      </li>
+      <ol>
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+        <li> 4 </li>
+        <li> 5 </li>
+        <li> 6 </li>
+      </ol>
     </div>
   )
 

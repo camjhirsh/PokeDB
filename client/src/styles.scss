@@ -6,6 +6,19 @@
   cursor: pointer;
 }
 
+.h2 {
+  font-family: 'Roboto Slab', serif;
+  color: grey;
+}
+
+.sm-btn {
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  font-size: smaller;
+}
+
 // Title Section //
 .wrapper {
   margin: 5%
@@ -26,10 +39,6 @@
   text-align: center;
 }
 
-.h2 {
-  font-family: sans-serif;
-  color: grey;
-}
 
 .filter-section {
   display: grid;
@@ -42,19 +51,12 @@
   text-align: left;
 }
 
-// Search Section //
+// View Section //
 
-.search-section {
+.list-view {
   height: 60px;
   text-align: center;
-}
-
-.search-btn {
-  border-radius: 10px;
-  margin-top: 20px;
-  height: 20px;
-  margin-bottom: 20px;
-  font-size: smaller;
+  display: block;
 }
 
 // Pokemon List Section //

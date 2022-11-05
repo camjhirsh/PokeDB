@@ -1,7 +1,6 @@
 import React from 'react';
 import SelectionPane from './SelectionPane.jsx';
 import PokeList from './PokeList.jsx';
-import Search from './Search.jsx';
 const axios = require('axios');
 
 class App extends React.Component {
@@ -40,6 +39,10 @@ class App extends React.Component {
     <div className="wrapper">
       <h1 className="title"> Build Your Party! </h1>
       <SelectionPane updateTypeFilter = {this.updateTypeFilter.bind(this)}/>
+      <div className="list-view">
+        <button className="sm-btn hover"> List View </button>
+        <button className="sm-btn hover"> Stats View </button>
+      </div>
       <PokeList pokemonList = {this.state.pokemon}/>
     </div>
     )

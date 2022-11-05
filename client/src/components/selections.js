@@ -39,11 +39,19 @@ module.exports = {
       ]
     },
     {
-      filterName: "Region",
+      filterName: "HMs",
       options: [
-        { value: 'sinoh', label: 'sinoh'},
-        { value: 'hoehn', label: 'hoehn'},
-        { value: 'black', label: 'black'}
+        { value: 'cut', label: 'sinoh'},
+        { value: 'fly', label: 'hoehn'},
+        { value: 'surf', label: 'black'},
+        { value: 'strength', label: 'black'},
+        { value: 'flash', label: 'black'},
+        { value: 'whirlpool', label: 'black'},
+        { value: 'waterfall', label: 'black'},
+        { value: 'rock smash', label: 'black'},
+        { value: 'dive', label: 'black'},
+        { value: 'defog', label: 'black'},
+        { value: 'rock climb', label: 'black'},
       ]
     },
     {
@@ -56,6 +64,14 @@ module.exports = {
       ]
     }
   ],
+
+  indexMap:
+  {
+    "Type": 0,
+    "Generation": 1,
+    "HMs": 2,
+    "Evolution": 3
+  },
 
   regions:
   [
