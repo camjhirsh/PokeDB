@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Search = (props) => (
-  <div className="SearchButton">
-    <button onClick={props.search}>Search</button>
+  <div className="search-section">
+    <button className="search-btn hover" onClick={props.search}>Search</button>
   </div>
 )
 

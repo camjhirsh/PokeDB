@@ -1,63 +1,70 @@
+/* STYLING */
+
+// constants
+
+.hover {
+  cursor: pointer;
+}
+
+// Title Section //
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 80px 80px auto auto;
-  row-gap: 60px;
+  margin: 5%
 }
 
 .title {
   color: red;
   text-align: center;
   font-family: 'Carter One';
-
-
   grid-column: 1 / 5;
 }
 
-.FilterPane {
-  grid-column: 1 / 5;
+// Filter Section //
+
+.filter-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-}
-
-.SearchButton {
-  grid-column: 1 / 5;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.PokemonList {
-  grid-column: 1 / 5;
-}
-
-.PokemonRow {
   font-family: 'Roboto Slab', serif;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
 }
 
 .filter {
   max-width: 200px;
-  padding-left: 20px;
 }
 
-.PokeName {
+// Search Section //
+
+.search-section {
+  height: 60px;
+  text-align: center;
+}
+
+.search-btn {
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  font-size: smaller;
+}
+
+// Pokemon List Section //
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+}
+
+.pokemon-entry {
+  font-family: 'Roboto Slab', serif;
+}
+
+.poke-image {
+  width: 80%;
+}
+.poke-name {
   color: darkblue;
-  padding-top: 40px;
 }
 
-.PokeTypes {
+.poke-types {
   color: red;
-  padding-top: 40px;
-}
-
-.PokeImage {
-  width: 20%;
-  padding-left: 120px;
-}
-
-.Index {
-  color: black;
-  padding-left: 60px;
-  padding-top: 40px;
+  display: inline-block;
 }
