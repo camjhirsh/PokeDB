@@ -5,7 +5,7 @@ const selections = require('./selections.js');
 
 const Filter = (props) => {
   return (
-    <div className="filter-section">
+    <div className="filter-entry">
       {props.filter.filterName}
       <Select
         options={props.filter.options}
