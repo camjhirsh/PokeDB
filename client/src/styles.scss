@@ -18,16 +18,28 @@
   grid-column: 1 / 5;
 }
 
-// Filter Section //
+// Selection-Pane Section //
+
+.selection-pane {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.h2 {
+  font-family: sans-serif;
+  color: grey;
+}
 
 .filter-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   font-family: 'Roboto Slab', serif;
 }
 
 .filter {
   max-width: 200px;
+  text-align: left;
 }
 
 // Search Section //
@@ -67,4 +79,9 @@
 .poke-types {
   color: red;
   display: inline-block;
+}
+
+.add-to-party {
+  height: 30px;
+  text-align: center;
 }

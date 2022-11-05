@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterPane from './FilterPane.jsx';
+import SelectionPane from './SelectionPane.jsx';
 import PokeList from './PokeList.jsx';
 import Search from './Search.jsx';
 const axios = require('axios');
@@ -38,9 +38,8 @@ class App extends React.Component {
   render () {
     return (
     <div className="wrapper">
-      <h1 className="title"> Search Pokemon! </h1>
-      <FilterPane updateTypeFilter = {this.updateTypeFilter.bind(this)}/>
-      <Search search = {this.search.bind(this)}/>
+      <h1 className="title"> Build Your Party! </h1>
+      <SelectionPane updateTypeFilter = {this.updateTypeFilter.bind(this)}/>
       <PokeList pokemonList = {this.state.pokemon}/>
     </div>
     )
