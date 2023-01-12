@@ -1,4 +1,4 @@
-const db = require('./db.js');
+const db = require('./index.js');
 
 module.exports = {
 
@@ -30,10 +30,10 @@ module.exports = {
       });
     };
 
-    await keyChecks(0);
+    // await keyChecks(0);
     let tableNames = ['pokemon', 'types', 'pokemon_and_types'];
     await Promise.all(tableNames.map(name => cleanTable(name)));
-    await keyChecks(1);
+    // await keyChecks(1);
   },
 
   addAllPokemon: (pokemons) => {
@@ -85,6 +85,70 @@ module.exports = {
       });
     });
   },
+
+  addGames: (games) => {
+    return new Promise((resolve, reject) => {
+
+      let queryString = "INSERT INTO games (name) VALUES "
+      let i = 1;
+      for (let g of games) {
+        if (g === games.length) {
+          valList = `("${g.name}")`
+        } else {
+          valList = `("${g.name}"), `
+        }
+        queryString += valList;
+        i++;
+      }
+
+      db.connection.query(queryString, (err, results) => {
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(results);
+        }
+      });
+    });
+  }
+
+  addHms: () => {
+    return new Promise((resolve, reject) => {
+
+      const HMs = [
+        { id: 1, name: 'cut' },
+        { id: 2, name: 'fly' },
+        { id: 3, name: 'surf' },
+        { id: 4, name: 'strength' },
+        { id: 5, name: 'flash' },
+        { id: 6, name: 'whirlpool' },
+        { id: 7, name: 'waterfall' },
+        { id: 8, name: 'rock smash' },
+        { id: 9, name: 'dive' },
+        { id: 10, name: 'defog' },
+        { id: 11, name: 'rock climb' }
+      ]
+
+      let queryString = "INSERT INTO hms (name) VALUES "
+      let i = 1;
+      for (let h of hms) {
+        if (h === hms.length) {
+          valList = `("${h.name}")`
+        } else {
+          valList = `("${h.name}"), `
+        }
+        queryString += valList;
+        i++;
+      }
+
+      db.connection.query(queryString, (err, results) => {
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(results);
+        }
+      });
+    });
+  }
 
   addPokemonType: (p_id, t_id) => {
     return new Promise((resolve, reject) => {

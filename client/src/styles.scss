@@ -35,18 +35,24 @@
 
 .selection-pane {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr;
   text-align: center;
-}
-
-
-.filter-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   font-family: 'Roboto Slab', serif;
 }
 
-.filter-entry.selection-entry {
+.party-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+}
+
+.filter-entry {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.selection-entry {
   height: 50px;
 }
 

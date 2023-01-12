@@ -14,7 +14,7 @@ const Selections = (props) => {
       <h2> Selections </h2>
       {selections.filters.map(entry => {
         i += 1;
-        return (<Selection selection={props.selected[i]}/>)
+        return (<Selection key={i} selection={props.selected[i]}/>)
       }
       )}
     </div>

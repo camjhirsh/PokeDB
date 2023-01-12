@@ -5,8 +5,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-const db = require('../database/db-interaction.js');
-const data = require('./get-data.js');
+const db = require('../database/models.js');
 
 var total_num_pokemon = 888;
 

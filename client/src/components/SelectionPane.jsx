@@ -24,7 +24,6 @@ class SelectionPane extends React.Component {
     return (
       <div className="selection-pane">
         <Filters handleFilterSelect={this.handleFilterSelect.bind(this)}/>
-        <Selections selected={this.state}/>
         <Party/>
       </div>
     )

@@ -41,17 +41,17 @@ module.exports = {
     {
       filterName: "HMs",
       options: [
-        { value: 'cut', label: 'sinoh'},
-        { value: 'fly', label: 'hoehn'},
-        { value: 'surf', label: 'black'},
-        { value: 'strength', label: 'black'},
-        { value: 'flash', label: 'black'},
-        { value: 'whirlpool', label: 'black'},
-        { value: 'waterfall', label: 'black'},
-        { value: 'rock smash', label: 'black'},
-        { value: 'dive', label: 'black'},
-        { value: 'defog', label: 'black'},
-        { value: 'rock climb', label: 'black'},
+        { value: 'cut', label: 'cut'},
+        { value: 'fly', label: 'fly'},
+        { value: 'surf', label: 'surf'},
+        { value: 'strength', label: 'strength'},
+        { value: 'flash', label: 'flash'},
+        { value: 'whirlpool', label: 'whirlpool'},
+        { value: 'waterfall', label: 'waterfall'},
+        { value: 'rock smash', label: 'rock smash'},
+        { value: 'dive', label: 'dive'},
+        { value: 'defog', label: 'defog'},
+        { value: 'rock climb', label: 'rock climb'},
       ]
     },
     {

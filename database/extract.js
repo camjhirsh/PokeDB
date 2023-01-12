@@ -1,7 +1,20 @@
 const axios = require('axios');
-const db = require('../database/db-interaction.js');
+const db = require('./models.js');
 
 module.exports = {
+
+  getTypes: async () => {
+    let results = await axios.get('https://pokeapi.co/api/v2/type');
+    results = results.data.results;
+    return results;
+  }
+
+  getGames: async () => {
+    let results = await axios.get('https://pokeapi.co/api/v2/version?limit=100000');
+    results = results.data.results;
+    console.log('game results: ', results)
+    return results;
+  },
 
   getOnePokemon: async (id) => {
     let pokemon = await axios.get('https://pokeapi.co/api/v2/pokemon/' + id.toString());
@@ -16,12 +29,6 @@ module.exports = {
       pmon.push(p);
     }
     return pmon;
-  },
-
-  getTypes: async () => {
-    let results = await axios.get('https://pokeapi.co/api/v2/type');
-    results = results.data.results;
-    return results;
   },
 
   saveTypesAndPokemon: async () => {
